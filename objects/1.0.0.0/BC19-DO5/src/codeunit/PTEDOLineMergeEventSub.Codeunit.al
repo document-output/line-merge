@@ -1,5 +1,18 @@
 codeunit 62050 "PTE DO Line Merge Event Sub"
 {
+    /*
+Regex ^[\s\S]*<tbody*[\s\S]*id="cdoline"[^\>]*>([\s\S]*)<\/tbody>[\s\S]*$
+Example text:
+asdasd asd ads ad ad
+asd ad asd asd
+<tbody class="test" id="cdoline" style="bliblablub">
+<tr>
+<td>test</td>
+</tr>
+</tbody>
+asdadadad
+    */
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"CDO Events", 'OnBeforeInsertSignature', '', true, true)]
     local procedure CDO_OnBeforeInsertSignature(FirstToContactNo: Code[20]; FormatAsHtml: Boolean; MailBody: Text; var CIDAttachment: Record "CDO E-Mail Template Attachment"; var EMailTemplateLine: Record "CDO E-Mail Template Line"; var FilterRecord: RecordRef)
     var
