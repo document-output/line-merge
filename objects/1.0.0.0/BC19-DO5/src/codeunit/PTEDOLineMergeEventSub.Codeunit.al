@@ -22,6 +22,7 @@ codeunit 62050 "PTE DO Line Merge Event Sub"
                 Message('Index: %1\%2', RegExMatches.Index, RegExMatches.ReadValue());
             until RegExMatches.Next() = 0;
 
+
         RegEx.Split(MailBody, SearchPattern, 5, SplitResult);
         message('Splits %1', SplitResult.Count);
 
